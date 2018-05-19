@@ -1,10 +1,8 @@
 <%@ page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/JDBC/jdbc.jsp"   %>
-<body>
+<%@ include file="/JDBC/jdbc.jsp" %>
 <%
 		request.setCharacterEncoding("UTF-8");
-
 		String userid = request.getParameter("id");
 		String userpassword =request.getParameter("password");
 		String username =request.getParameter("name");
@@ -12,12 +10,7 @@
 		String usersex = request.getParameter("sex");
 		//String userlevel =request.getParameter("level");
 		String useremail=request.getParameter("email");
-		int count=0;
-		
-		if(conn != null)
-		{			
-			
-		try{
+		int count=-1;
 			String sql="insert into user_if(user_no,user_name,user_sex,user_id,user_password,user_email,user_level)"
 						+"values(?,?,?,?,?,?,?)";
 			pstmt =conn.prepareStatement(sql); //实例化preparedStatement 
@@ -28,34 +21,16 @@
 		    pstmt.setString(5,userpassword);
 		    pstmt.setString(6,useremail);
 		    pstmt.setString(7,"c");
-		   count =pstmt.executeUpdate();//数据库更新操作
-			 
-		}
-		catch(Exception e){
-			out.println("错误是"+e);
-			out.println();
-		}
-		
+		   	count =pstmt.executeUpdate();//数据库更新操作
+			pstmt.close();  //关闭执行语句
+			conn.close();  //关闭一次连接 
 			if(count>0){
-				//response.sendRedirect("home.jsp");
-				out.println("注册成功");
+				
+				out.print("<script language='javaScript'> alert('恭喜您，注册成功');</script>");
+				response.setHeader("refresh","0;url=login.jsp");
 			}
 			else{
-				out.print("注册失败");
-				%>
-				<a href="javascript:history.back()">返回</a>
-				<% 
+				out.print("<script language='javaScript'> alert('注册失败!');</script>");
+				response.setHeader("refresh","0;url=register.jsp");
 			}			
-			// 输出连接信息
-			//out.println("数据库连接成功！");
-			// 关闭数据库连接
-			conn.close();
-		}
-		else
-		{
-			// 输出连接信息
-			out.println("数据库连接失败！");						
-		}
-	
 %>
-</body>

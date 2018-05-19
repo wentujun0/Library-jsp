@@ -7,26 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>欢迎登陆</title>
 <script >
-function resetFun(){
-	window.confirm("是否进行重置？");
-	$("user_id").value="";
-	$("user_password").value="";
-	return;
-	
-}
 var flag=false;
-function subInput(form){
+function subInput(){
 	
 	
-	var userid=$("#user_id").value;
-	var userpassword=$("#user_password").value;
+	var userid=document.getElementById("user_id").value;
+	var userpassword=document.getElementById("user_password").value;
 	
 	if(userid=="")
-		{alert("用户名不能为空!");}
-	if(userpassword=="")
-		{alert("密码不能为空!");}
+		{alert("用户名不能为空!");
+		return flag;
+		}
+	else if(userpassword=="")
+		{alert("密码不能为空!");
+		return flag;
+		}
 	else
-		{flag=true;}
+		{flag=true;
+		return flag;
+		}
 }
     
     
@@ -44,7 +43,8 @@ function subInput(form){
 </div>
 <br>
 <div id="login_1">
-<form method="post" onSubmit="return subInput(this)" action="checkedlo.jsp" >
+
+<form method="post" onsubmit="return subInput(this)" action="checkedlo.jsp" >
 <table>
  <tr>
  	<td> 用户名:</td>
@@ -67,10 +67,9 @@ function subInput(form){
  </tr>
 </table>
 <div id="lo_button">
-<input type="submit" name="submit" value="登录">
- <input type="reset"  name="reset1"  value="重置" >
-<!--  <button type="button" id="chongzhi">重置</button>-->
-<!--<input type="reset" name="reset1" value="重置">-->
+<input type="submit" name="submit" value="登录" >
+<input type="reset"  name="reset1"  value="重置" >
+
 </div>
 
 </form>
