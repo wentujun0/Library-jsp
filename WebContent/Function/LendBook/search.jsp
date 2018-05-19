@@ -28,7 +28,6 @@
 <a href="javascript:history.back()">返回</a>
 
 </body>
-</html>
 <script type="text/javascript">
 function seacrchbu()
 {
@@ -37,3 +36,4 @@ function seacrchbu()
 	}
 
 </script>
+</html>

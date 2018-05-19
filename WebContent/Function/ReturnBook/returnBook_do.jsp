@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>还书操作 </title>
-<script language=javascript>
+<script type="text/javascript">
 function go()
 {
 window.history.go(-1);

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.lang.*,java.sql.*,java.util.*" %>
   <%@ include file="/JDBC/jdbc.jsp"%>
-<!DOCTYPE html>
+
 <html>
 <head>
 
@@ -11,7 +11,8 @@
 </head>
 <body>
 	<form name="fm">
-		<table width="70%" border="1" cellspacing="0" cellpadding="3">
+		<table style="width:70%;cellspacing:0; cellpadding:3" border="1" >
+		
 			<tr>
 				<th width="8%">图书编号</th>
 				<th width="15%">图书名称</th>
@@ -78,9 +79,7 @@
 	</form>
 	<br><a href="../../Manage/aduser.jsp">返回</a>
 </body>
-</html>
-
-<script >
+<script type="text/javascript" >
 
 
 function deleteMore(){
@@ -94,4 +93,7 @@ function deleteMore(){
 	
 }
 </script>
+</html>
+
+
 

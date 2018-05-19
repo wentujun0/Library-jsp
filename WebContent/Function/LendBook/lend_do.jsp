@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>借阅图书结果 </title>
-<script language=javascript>
+<script type="text/javascript">
 function go()
 {
 window.history.go(-1);
